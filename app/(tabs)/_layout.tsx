@@ -7,7 +7,7 @@ import Colors from '@/constants/Colors';
 import { useColorScheme } from '@/components/useColorScheme';
 import { useClientOnlyValue } from '@/components/useClientOnlyValue';
 
-// You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
+// TabBarIcon component for rendering icons
 function TabBarIcon(props: {
   name: React.ComponentProps<typeof FontAwesome>['name'];
   color: string;
@@ -22,15 +22,14 @@ export default function TabLayout() {
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        // Disable the static render of the header on web
-        // to prevent a hydration error in React Navigation v6.
         headerShown: useClientOnlyValue(false, true),
       }}>
+      {/* 主頁 (Home Tab) */}
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Tab One',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: '主頁', // Tab title
+          tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />, // Home icon
           headerRight: () => (
             <Link href="/modal" asChild>
               <Pressable>
@@ -47,11 +46,28 @@ export default function TabLayout() {
           ),
         }}
       />
+      {/* 我的健康 (My Health Tab) */}
       <Tabs.Screen
-        name="two"
+        name="health"
         options={{
-          title: 'Tab Two',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: '我的健康', // Tab title
+          tabBarIcon: ({ color }) => <TabBarIcon name="heartbeat" color={color} />, // Health icon
+        }}
+      />
+      {/* 我的預約 (My Appointments Tab) */}
+      <Tabs.Screen
+        name="appointments"
+        options={{
+          title: '我的預約', // Tab title
+          tabBarIcon: ({ color }) => <TabBarIcon name="calendar" color={color} />, // Appointment icon
+        }}
+      />
+      {/* 我的帳號 (My Account Tab) */}
+      <Tabs.Screen
+        name="account"
+        options={{
+          title: '我的帳號', // Tab title
+          tabBarIcon: ({ color }) => <TabBarIcon name="user" color={color} />, // Account icon
         }}
       />
     </Tabs>
