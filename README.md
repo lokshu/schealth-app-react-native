@@ -16,10 +16,10 @@ This project is a React Native application developed for managing user health-re
 
 ## Installation and Run
 
-'''
+```
 yarn install
 yarn start
-'''
+```
 
 ## Dependencies
 - **React Navigation**: For navigating between screens.
