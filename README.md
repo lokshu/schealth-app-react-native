@@ -19,7 +19,7 @@ This project is a React Native application developed for managing user health-re
 '''
 yarn install
 yarn start
-...
+'''
 
 ## Dependencies
 - **React Navigation**: For navigating between screens.
